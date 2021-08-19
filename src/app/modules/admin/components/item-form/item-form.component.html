@@ -1,0 +1,63 @@
+
+<form [formGroup]="albumForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+
+  <div *ngIf="type==='albums'">
+    <!-- Album name -->
+    <div class="mb-3">
+      <label for="albumNameInput" class="form-label">Name</label>
+      <input *ngIf="!existingAlbum" type="text" class="form-control" id="albumNameInput" formControlName="albumName" required>
+      <input *ngIf="existingAlbum" type="text" class="form-control" id="albumNameInput" formControlName="albumName" [placeholder]="existingAlbum.name">
+      <!-- Album name validation -->
+      <div class="invalid-feedback">Name required</div>
+    </div>
+
+    <!-- Album description -->
+    <div class="mb-3">
+      <label for="albumDescriptionInput" class="form-label">Description</label>
+      <textarea *ngIf="!existingAlbum" type="text" class="form-control" id="albumDescriptionInput"
+        rows="2" formControlName="albumDescription" required></textarea>
+      <textarea *ngIf="existingAlbum" type="text" class="form-control" id="albumDescriptionInput"
+        rows="2" formControlName="albumDescription" [placeholder]="existingAlbum.description" required></textarea>
+      <!-- Album description validation -->
+      <div class="invalid-feedback">Description required</div>
+    </div>
+  </div>
+
+  <!-- Album cover / Picture -->
+  <div class="mb-3">
+    <label *ngIf="type==='albums'" for="albumCoverInput" class="form-label">Cover</label>
+    <label *ngIf="type==='pictures'" for="albumCoverInput" class="form-label">Picture</label>
+    <input type="file" class="form-control" id="albumCoverInput"
+      name="albumCover"accept="image/*" (change)="onFileChange($event)"
+      formControlName="albumCover" required>
+    <div class="form-text">Maximum upload file size: 10 MB.</div>
+    <!-- File size error message -->
+    <div class="form-text alert-danger" *ngIf="showFileSizeError">
+      The file you have chosen is too big
+    </div>
+    <!-- Album cover / Picture validation -->
+    <div class="invalid-feedback">Cover required</div>
+  </div>
+
+  <!-- Album cover / Picture preview -->
+  <div class="text-center">
+    <img [src]="filePath" alt="album cover preview" class="img-thumbnail" *ngIf="filePath && filePath !== ''">
+  </div>
+
+  <!-- Album creation validation -->
+  <div *ngIf="showAlbumCreationError" class="alert alert-danger" role="alert">
+    Something went wrong, please try again.
+  </div>
+
+  <!-- Form submit / Close -->
+  <div class="text-center">
+    <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
+    <div *ngIf="type==='albums'" class="d-inline">
+      <button *ngIf="!existingAlbum" type="submit" class="btn btn-primary" >Add album</button>
+      <button *ngIf="existingAlbum" type="submit" class="btn btn-primary" >Update album</button>
+    </div>
+    <div *ngIf="type==='pictures'" class="d-inline">
+      <button type="submit" class="btn btn-primary" >Add picture</button>
+    </div>
+  </div>
+</form>

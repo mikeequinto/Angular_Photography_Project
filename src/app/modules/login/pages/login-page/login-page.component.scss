@@ -1,0 +1,12 @@
+@import "../../../../../styles.scss";
+
+.form-container {
+    /*Layout*/
+    max-width: 550px;
+    /*Border*/
+    border-width: 1px;
+    border-style: solid;
+    border-color: $border-color;
+    border-radius: 15px;
+}
+

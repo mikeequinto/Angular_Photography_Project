@@ -1,0 +1,12 @@
+<div *ngIf="album" class="card h-100">
+  <a routerLink="/admin/albums/{{album._id}}" class="img-link">
+    <img [src]="imagePath" class="card-img-top" [alt]="album.name">
+  </a>
+  <div class="card-body d-flex flex-column card-info">
+    <h5 class="card-title">{{ albumName }}</h5>
+    <div class="row mt-auto justify-content-around card-buttons">
+      <app-album-edit-button class="card-btn" [album]="album"></app-album-edit-button>
+      <app-album-delete-button class="card-btn" [album]="album"></app-album-delete-button>
+    </div>
+  </div>
+</div>

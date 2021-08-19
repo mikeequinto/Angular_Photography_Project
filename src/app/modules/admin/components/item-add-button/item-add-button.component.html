@@ -1,0 +1,26 @@
+
+<!-- Button trigger modal -->
+<div class="mt-4 mb-4 text-center">
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#albumModal">
+    Add a new {{ typeLabel }}
+  </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="albumModal" tabindex="-1" aria-labelledby="albumModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal header -->
+      <div class="modal-header">
+        <h5 class="modal-title">New {{ typeLabel }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!-- Modal body-->
+      <div class="modal-body">
+        <app-item-form type="{{type}}"></app-item-form>
+      </div>
+    </div>
+  </div>
+</div>

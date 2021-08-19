@@ -1,0 +1,8 @@
+<div class="pt-4 pt-sm-5 row d-flex justify-content-center">
+  <div class="form-container col-10 col-sm-8 col-lg-6 col-xl-4 p-5 text-center">
+    
+    <app-login-form *ngIf="loginComponent" (parentFun)="switchForm()"></app-login-form>
+    <app-forgot-form *ngIf="!loginComponent" (parentFun)="switchForm()"></app-forgot-form>
+
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<h2 class="mb-4">Forgot password</h2>
+
+<!-- Forgot password form -->
+<form method="POST" action="/admin-login">
+  <div class="mb-3">
+    <input 
+    [(ngModel)]="user.email"
+    type="email" id="email" name="email" placeholder="Email" />
+  </div>
+  <button (click)="resetPassword()" type="button" class="btn btn-primary reset-button">Reset password</button>
+</form>
+
+<nav class="mt-2">
+  <a class="back-button" (click)="onClick()">Go back</a>
+</nav>

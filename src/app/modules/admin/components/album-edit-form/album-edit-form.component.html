@@ -1,0 +1,45 @@
+
+<form [formGroup]="albumNameForm" class="needs-validation" novalidate>
+  <!-- Album name -->
+  <div class="mb-3">
+    <label for="albumNameEditInput" class="form-label">Name</label>
+    <input type="text" class="form-control mb-2" id="albumNameEditInput" 
+      formControlName="albumNameEdit" [placeholder]="album.name" required>
+    <!-- Album name validation -->
+    <div class="invalid-feedback">Name required</div>
+    <button type="submit" class="btn btn-success  mt-2">Update</button>
+  </div>
+</form>
+
+<form [formGroup]="albumDescriptionForm" class="needs-validation" novalidate>
+  <!-- Album description -->
+  <div class="mb-3">
+    <label for="albumDescriptionEditInput" class="form-label">Description</label>
+    <textarea type="text" class="form-control" id="albumDescriptionEditInput" 
+      rows="2" formControlName="albumDescriptionEdit" required></textarea>
+    <!-- Album description validation -->
+    <div class="invalid-feedback">Description required</div>
+    <button type="submit" class="btn btn-success  mt-2">Update</button>
+  </div>
+</form>
+
+<form [formGroup]="albumCoverForm" class="needs-validation" novalidate>
+  <div class="mb-3">
+    <label for="albumCoverEditInput" class="form-label">Cover</label>
+    <input type="file" class="form-control" id="albumCoverEditInput" 
+      name="albumCover"accept="image/*" (change)="onFileChange($event)"
+      formControlName="albumCoverEdit" required>
+    <div class="form-text">Maximum upload file size: 10 MB.</div>
+    <!-- Album cover size error -->
+    <!-- <div class="form-text alert-danger mb-2" *ngIf="showFileSizeError">
+      The file you have chosen is too big
+    </div> -->
+    <!-- Album cover validation -->
+    <div class="invalid-feedback">Cover required</div>
+    <button type="submit" class="btn btn-success mt-2">Update</button>
+  </div>
+</form>
+
+<div class="text-center">
+  <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
+</div>
